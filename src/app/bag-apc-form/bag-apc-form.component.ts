@@ -75,13 +75,21 @@ export class BagAPCFormComponent implements OnInit {
       const bagAPCs = this.bagsForm.value.bags;
       this.bagHandlingService.checkInBaggages(bagAPCs)
         .subscribe({
-          next: response => {
+          next: (response: []) => {
             // Handle success response
-            this.openSnackBar('Bag APCs sent successfully', 'Close');
+            this.openSnackBar(response.length + ' Bags Checked-In Successfully', 'OK');
           },
-          error: error => {
+          error: (errors: {
+            error: {
+              code: string,
+              messages: any
+            }
+          }) => {
             // Handle error response
-            this.openSnackBar('Failed to send Bag APCs', 'Close');
+            var errorMessages = errors.error.messages;
+            for (let errorMessage in errorMessages) {
+              this.openSnackBar(errorMessages[errorMessage], 'Close');
+            }
           }
         });
     } else {
