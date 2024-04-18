@@ -1,0 +1,12 @@
+<main>
+    <header class="brand-name">
+        <img class="brand-logo" src="/assets/baggage-svg.svg" alt="logo" aria-hidden="true" />
+        <app-navigation></app-navigation>
+    </header>
+    <app-search></app-search>
+    <app-bag-apc-form></app-bag-apc-form>
+    <app-check-in-summary *ngIf="totalBags!>0" [totalBags]="totalBags" [allFlights]="allFlights"></app-check-in-summary>
+    <section class="results">
+        <app-airlines *ngFor="let airlines of bagsInAirlines | keyvalue" [airlines]="airlines"></app-airlines>
+    </section>
+</main>

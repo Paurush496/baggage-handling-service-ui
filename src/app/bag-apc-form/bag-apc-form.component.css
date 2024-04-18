@@ -1,0 +1,69 @@
+span {
+    color: red;
+    font-size: small;
+}
+
+.bag-row {
+    display: -webkit-box;
+}
+
+.bag-column {
+    margin: 10px;
+    width: 16%;
+}
+
+input[type="text"] {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 5px;
+    margin-bottom: 5px;
+}
+
+input[type="number"] {
+    margin-left: 15px;
+    font-size: inherit;
+}
+
+@media (max-width: 768px) {
+    .bag-row {
+        flex-wrap: wrap;
+    }
+
+    .bag-column {
+        flex-basis: 45%;
+        margin-bottom: 10px;
+    }
+}
+
+.total-bags {
+    height: 40px;
+    font-size: larger;
+}
+
+.bags {
+    width: 35%;
+    display: inline-block;
+}
+
+button[type="submit"] {
+    background-color: var(--primary-color);
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+    background-color: var(--secondary-color);
+}
+
+button[type="submit"]:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}

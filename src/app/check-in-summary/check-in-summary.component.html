@@ -1,0 +1,10 @@
+<section>
+    <h1> Total Baggages Checked In: {{totalBags}}</h1>
+    <mat-chip-set aria-label="All Flights">
+        <h1>Flights: </h1>
+        <mat-chip *ngFor="let flight of allFlights" class="chip">
+            <img matChipAvatar src="{{ flight.logoUrl }}" alt="Airline Logo of {{ flight.flight }}" />
+            {{flight.flight}}
+        </mat-chip>
+    </mat-chip-set>
+</section>

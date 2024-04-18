@@ -1,0 +1,27 @@
+<section class="content">
+    <form [formGroup]="bagsForm" (submit)="submitAPCs()">
+        <div class="total-bags">
+            <label>Total Number of Bags:</label>
+            <input type="number" formControlName="totalBags" (input)="generateInputBoxes()" placeholder="Max 15">
+            <div
+                *ngIf="bagsForm.get('totalBags')?.invalid && (bagsForm.get('totalBags')?.dirty || bagsForm.get('totalBags')?.touched)">
+                <span *ngIf="bagsForm.get('totalBags')?.hasError('required')">Total number of bags is required.</span>
+                <span *ngIf="bagsForm.get('totalBags')?.hasError('min')">Total number of bags must be at least 1.</span>
+                <span *ngIf="bagsForm.get('totalBags')?.hasError('max')">Total number of bags cannot exceed 15.</span>
+            </div>
+        </div>
+
+        <div class="bags" formArrayName="bags" *ngIf="bagRows.length<4">
+            <div class="bag-row" *ngFor="let row of bagRows; let i = index">
+                <div class="bag-column" *ngFor="let bag of row; let j = index">
+                    <input type="text" [formControlName]="i * 5 + j" placeholder="Bag-{{i * 5 + j + 1}} APC">
+                </div>
+            </div>
+            <span>
+                {{printErrorMessages()}}
+            </span>
+        </div><br />
+
+        <button type="submit" [disabled]="!bagsForm.valid">Submit</button>
+    </form>
+</section>

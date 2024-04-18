@@ -3,9 +3,10 @@ import { Routes, RouterModule } from '@angular/router';
 import { NavigationComponent } from './navigation/navigation.component';
 import { SearchComponent } from './search/search.component';
 
-export const routes: Routes = [
+const routes: Routes = [
   { path: 'navigation', component: NavigationComponent },
-  { path: 'search', component: SearchComponent }
+  { path: 'search', component: SearchComponent },
+  { path: '', redirectTo: '/navigation', pathMatch: 'full' },
 ];
 
 @NgModule({
