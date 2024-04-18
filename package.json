@@ -8,7 +8,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:baggage-handler-service-ui": "node dist/baggage-handler-service-ui/server/server.mjs",
-    "heroku-postbuild": "ng build baggage-handler-service-ui"
+    "heroku-postbuild": "ng build --prod"
   },
   "private": true,
   "dependencies": {
