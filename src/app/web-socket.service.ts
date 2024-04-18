@@ -9,7 +9,7 @@ export class WebSocketService {
 
   // Open connection with the back-end socket
   public connect() {
-    let socket = new SockJS.default(`http://localhost:8080/ws`);
+    let socket = new SockJS.default(`https://baggage-handler-backend-40f0f577f4eb.herokuapp.com/ws`);
 
     let stompClient = Stomp.over(socket);
 
